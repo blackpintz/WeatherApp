@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
     <body>
-        <h2>Hello Friends!</h2>
+        <nav class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Home</a>
+        </nav>
+        <div id="content">
+            <form class='w-50 mx-auto'>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Enter name of a city:</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Name of city">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
         <script  src="./main.js"></script>
     </body>
 </html>
