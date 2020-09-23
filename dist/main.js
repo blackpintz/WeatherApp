@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);\n// Module\n___CSS_LOADER_EXPORT___.push([module.i, \"body {\\n  color: grey;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);\n// Module\n___CSS_LOADER_EXPORT___.push([module.i, \"body {\\n  color: grey;\\n}\\n\\n.snow {\\n  background-color: #e5e4e2;\\n}\\n\\n.cloud {\\n  background-color: #ffe4e1;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack:///./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -134,6 +134,30 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
+/***/ "./src/components/dom.js":
+/*!*******************************!*\
+  !*** ./src/components/dom.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst content = document.getElementById('content');\nconst title = document.createElement('p');\nconst temp = document.createElement('p');\nconst cloud = document.createElement('p');\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ((data) => {\n  const errTag = document.getElementById('err');\n  title.innerText = `City: ${data.name}.`;\n  temp.innerText = `Temperature: ${data.main.feels_like}.`;\n  cloud.innerText = `There is ${data.weather[0].main}.`;\n  if (errTag) errTag.remove();\n  content.appendChild(title);\n  content.appendChild(temp);\n  return content.appendChild(cloud);\n});\n\n\n//# sourceURL=webpack:///./src/components/dom.js?");
+
+/***/ }),
+
+/***/ "./src/components/fetch.js":
+/*!*********************************!*\
+  !*** ./src/components/fetch.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst fetch = __webpack_require__(/*! node-fetch */ \"./node_modules/node-fetch/browser.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (async (location) => {\n  let response;\n  try {\n    response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=03538b785f3c918aa4b66f04b2d344e7`);\n    if (!response.ok) throw new Error(`${location} not found.`);\n    return response.json();\n  } catch (err) {\n    const content = document.getElementById('content');\n    const errTag = document.createElement('h3');\n    errTag.id = 'err';\n    errTag.innerText = err;\n    return content.appendChild(errTag);\n  }\n});\n\n//# sourceURL=webpack:///./src/components/fetch.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -142,7 +166,7 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst fetch = __webpack_require__(/*! node-fetch */ \"./node_modules/node-fetch/browser.js\");\n\nconst content = document.getElementById('content');\nconst title = document.createElement('p');\nconst temp = document.createElement('p');\nconst cloud = document.createElement('p');\nconst location = 'Nairobi,Kenya';\n\nconst fetchData = async (location) => {\n  const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=03538b785f3c918aa4b66f04b2d344e7`);\n  if (data.status === 200) {\n    return data.json();\n  }\n  throw new Error('Unable to fetch data');\n};\n\nfetchData(location).then((data) => {\n  title.innerText = `City: ${data.name}.`;\n  temp.innerText = `Temperature: ${data.main.feels_like}.`;\n  cloud.innerText = `It feels abit ${data.weather[0].description}.`;\n  content.appendChild(title);\n  content.appendChild(temp);\n  content.appendChild(cloud);\n}).catch((error) => `Error: ${error} found.`);\n\n// fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=03538b785f3c918aa4b66f04b2d344e7`, {}).then((response) => {\n//     if(response.status === 200) {\n//         return response.json()\n//     } else {\n//         throw new Error('Unable to fetch data')\n//     }\n// }).then((data) => {\n//     title.innerText = data.name\n//     content.appendChild(title);\n// }).catch((error) => {\n//     console.log(error)\n// })\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/fetch */ \"./src/components/fetch.js\");\n/* harmony import */ var _components_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/dom */ \"./src/components/dom.js\");\n\n\n\n\nconst form = document.getElementById('form');\n\nform.addEventListener('submit', (e) => {\n  e.preventDefault();\n  const city = document.getElementById('city').value;\n  Object(_components_fetch__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(city).then((data) => {\n    Object(_components_dom__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(data);\n  }).catch((error) => `Error: ${error} found.`);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
