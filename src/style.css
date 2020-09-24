@@ -9,3 +9,7 @@ body {
 .cloud {
   background-color: #ffe4e1;
 }
+
+.weather {
+  height: 100vh;
+}

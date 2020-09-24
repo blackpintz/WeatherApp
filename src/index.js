@@ -10,4 +10,5 @@ form.addEventListener('submit', (e) => {
   fetchData(city).then((data) => {
     displayWeather(data);
   }).catch((error) => `Error: ${error} found.`);
+  form.reset();
 });
