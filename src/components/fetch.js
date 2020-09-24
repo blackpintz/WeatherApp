@@ -9,7 +9,7 @@ export default async (location) => {
   } catch (err) {
     const content = document.getElementById('content');
     const errTag = document.createElement('h3');
-    errTag.className = 'err';
+    errTag.className = 'err text-center';
     errTag.innerText = err;
     return content.appendChild(errTag);
   }

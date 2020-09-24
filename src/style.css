@@ -3,13 +3,34 @@ body {
 }
 
 .snow {
-  background-color: #e5e4e2;
+  background-image: url('https://images.unsplash.com/photo-1486078695445-0497c2f58cfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
 }
 
-.cloud {
-  background-color: #ffe4e1;
+.clouds {
+  background-image: url('https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
+}
+
+.rain,
+.drizzle {
+  background-image: url('https://images.pexels.com/photos/459451/pexels-photo-459451.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+}
+
+.clear {
+  background-image: url('https://images.pexels.com/photos/96622/pexels-photo-96622.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+}
+
+.fog,
+.mist,
+.haze {
+  background-image: url('https://images.unsplash.com/photo-1430921688227-2c59c6489072?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
+}
+
+.thunderstorm {
+  background-image: url('https://images.pexels.com/photos/1118869/pexels-photo-1118869.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
 }
 
 .weather {
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
