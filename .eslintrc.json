@@ -19,11 +19,10 @@
     "dist/",
     "build/"
   ],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": ["src"]
-      }
-    }
-  }
+  "rules": {
+   "import/no-unresolved": [
+      2, 
+      { "caseSensitive": false }
+   ]
+}
 }

@@ -154,7 +154,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _wea
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst fetch = __webpack_require__(/*! node-fetch */ \"./node_modules/node-fetch/browser.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (async (location) => {\n  let response;\n  try {\n    response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=03538b785f3c918aa4b66f04b2d344e7`);\n    if (!response.ok) throw new Error(`${location} not found.`);\n    return response.json();\n  } catch (err) {\n    const content = document.getElementById('content');\n    const errTag = document.createElement('h3');\n    errTag.className = 'err text-center';\n    errTag.innerText = err;\n    return content.appendChild(errTag);\n  }\n});\n\n//# sourceURL=webpack:///./src/components/fetch.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconst fetch = __webpack_require__(/*! node-fetch */ \"./node_modules/node-fetch/browser.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (async (location) => {\n  let response;\n  try {\n    response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=03538b785f3c918aa4b66f04b2d344e7`);\n    if (!response.ok) throw new Error(`${location} not found.`);\n    return response.json();\n  } catch (err) {\n    const content = document.getElementById('content');\n    const errTag = document.createElement('h3');\n    errTag.className = 'err text-center';\n    errTag.innerText = err;\n    return content.appendChild(errTag);\n  }\n});\n\n\n//# sourceURL=webpack:///./src/components/fetch.js?");
 
 /***/ }),
 
@@ -166,7 +166,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst fetch = __webpack_requi
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ((condition, city) => {\n  switch (condition) {\n    case 'Clouds':\n      return `It is cloudy in ${city}.`;\n    case 'Clear':\n      return `The sky is clear in ${city}.`;\n    case 'Rain':\n      return `It is raining in ${city}.`;\n    case 'Fog':\n      return `It is foggy in ${city}.`;\n    case 'Snow':\n      return `It is snowing in ${city}.`;\n    case 'Thunderstorm':\n      return `There is thunderstorms in ${city}.`;\n    case 'Drizzle':\n      return `It is drizzling in ${city}.`;\n    default:\n      return `It is ${condition}y in ${city}.`;\n  }\n});\n\n//# sourceURL=webpack:///./src/components/weather.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ((condition, city) => {\n  switch (condition) {\n    case 'Clouds':\n      return `It is cloudy in ${city}.`;\n    case 'Clear':\n      return `The sky is clear in ${city}.`;\n    case 'Rain':\n      return `It is raining in ${city}.`;\n    case 'Fog':\n      return `It is foggy in ${city}.`;\n    case 'Snow':\n      return `It is snowing in ${city}.`;\n    case 'Thunderstorm':\n      return `There is thunderstorms in ${city}.`;\n    case 'Drizzle':\n      return `It is drizzling in ${city}.`;\n    default:\n      return `It is ${condition}y in ${city}.`;\n  }\n});\n\n\n//# sourceURL=webpack:///./src/components/weather.js?");
 
 /***/ }),
 
