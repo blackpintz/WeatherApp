@@ -32,7 +32,7 @@ To get a local copy up and running follow these simple example steps.
 - Clone the project.
 - Cd into the project directory.
 - Run ```npm install``` .
-- Run ```npm start```.
+- Run ```npm run build```.
 
 
 ## Author
